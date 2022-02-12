@@ -85,8 +85,7 @@
 
         <h1>LINKS</h1>
         <div class="line border-top-1 my-2"></div>
-        <div class="ccg ccg-3" style="--grid-gap-x: 30px;--grid-gap-y: 30px;">
-
+        <div class="ccg ccg-3 link-list" style="--grid-gap-x: 30px;--grid-gap-y: 30px;">
             <div class="block">
                 <img src="https://i.imgur.com/6u4pSkP.jpg" alt="" class="img w-100 " style="height: 35vmin; object-fit: cover; object-position: center;">
                 <h4 class="my-1">Module Function</h4>
@@ -94,16 +93,10 @@
                 <a href="https://github.com/hercsart/hercs-module-function" class="text-color-base text-uppercase">Github →</a>
             </div>
             <div class="block">
-                <img src="https://i.imgur.com/6u4pSkP.jpg" alt="" class="img w-100 " style="height: 35vmin; object-fit: cover; object-position: center;">
-                <h4 class="my-1">School Projects</h4>
-                <p class="text-uppercase mb-1">Browse the web and online work I've produced in universities and colleges.</p>
-                <a href="#" class="text-color-base text-uppercase">document →</a>
-            </div>
-            <div class="block">
-                <img src="https://i.imgur.com/6u4pSkP.jpg" alt="" class="img w-100 " style="height: 35vmin; object-fit: cover; object-position: center;">
-                <h4 class="my-1">Koakinaimarche</h4>
-                <p class="text-uppercase mb-1">for developers, for user, for you. the developers document for everyone.</p>
-                <a href="#" class="text-color-base text-uppercase">document →</a>
+                <img src="${e[0]}" alt="" class="img w-100 " style="height: 35vmin; object-fit: cover; object-position: center;">
+                <h4 class="my-1">${e[1]}</h4>
+                <p class="text-uppercase mb-1">${e[2]}</p>
+                <a href="${e[4]}" class="text-color-base text-uppercase">${e[3]} →</a>
             </div>
         </div>
 
@@ -142,23 +135,25 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js "></script>
     <script>
-        fetch('https://sheets.googleapis.com/v4/spreadsheets/1ht4ekGq2xZJHcmFbYmL2IqC1phBB6yqu82d8I9a9wYU/values/Repos!A1:D999?alt=json&key=AIzaSyBdDg9HUG3s3377BO72GvlEBFJYYQwjBvc')
+        fetch('https://sheets.googleapis.com/v4/spreadsheets/1ht4ekGq2xZJHcmFbYmL2IqC1phBB6yqu82d8I9a9wYU/values/Repos!A1:F999?alt=json&key=AIzaSyBdDg9HUG3s3377BO72GvlEBFJYYQwjBvc')
             .then(res => res.json())
             .then(res => {
                 console.log(res.values)
                 output = res.values;
             }).then(() => {
-                `<div class="block">
-                <img src="https://i.imgur.com/6u4pSkP.jpg" alt="" class="img w-100 " style="height: 35vmin; object-fit: cover; object-position: center;">
-                <h4 class="my-1">Module Function</h4>
-                <p class="text-uppercase mb-1">Customize and provide modular functionality for HERCS personal use.</p>
-                <a href="https://github.com/hercsart/hercs-module-function" class="text-color-base text-uppercase">Github →</a>
-            </div>`
-                output.forEach((e, index) => {
-                    console.log(e)
+                var writeInnerHTML = "";
+                output.forEach(e => {
+                    writeInnerHTML = writeInnerHTML + `
+                    <div class="block">
+                    <img src="${e[0]}" alt="" class="img w-100 " style="height: 35vmin; object-fit: cover; object-position: center;">
+                    <h4 class="my-1">${e[1]}</h4>
+                    <p class="text-uppercase mb-1">${e[2]}</p>
+                    <a href="${e[4]}" class="text-color-base text-uppercase">${e[3]} →</a>
+                    </div>`
                 });
-
-            })
+                document.querySelector(".link-list").innerHTML = writeInnerHTML;
+                console.log(writeInnerHTML);
+            });
 
 
         if (document.querySelector('[data-scroll-container]') && navigator.platform == 'Win32') {
