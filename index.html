@@ -41,6 +41,10 @@
         .img {
             border-radius: 20px;
         }
+        
+        img {
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -49,20 +53,33 @@
     <h1>Developers./-/</h1>
     <div class="line border-top-1 my-2"></div>
     <div class="info ccg ccg-24">
-        <p class="ccg:1-4 text-uppercase">for developers, for user, for you. the developers document for everyone.</p>
-        <div class="ccg:4-5 flex">
+        <p class="ccg:1-16 m:ccg:1-7 text-uppercase">for developers, for user, for you. the developers document for everyone.</p>
+        <div class="ccg:7-8  m:d-flex d-none">
             <div class="w-100"></div>
             <div class="w-100 border-left-1"></div>
         </div>
-        <p class="ccg:5-10 text-uppercase">for developers, for user, for you. the developers document for everyone.</p>
+        <div class="ccg:8-24  d-none m:d-block text-uppercase">links <br><br>
+            <div class="ccg ccg-3 ml:ccg-6 w-100" style="--grid-gap-y: 1vh">
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+                <a href="#" class="mr-2 text-color-base text-decoration-none">Swiss Max</a>
+
+            </div>
+        </div>
     </div>
     <div class="line border-top-1 my-2"></div>
 
-    <div class="ccg ccg-20 py-7">
+    <div class="ccg ccg-20 py-7" data-scroll data-scroll-speed="1.2" data-scroll-delay="0.1">
         <h4 class="ccg:9-19">To help designers and creators who are interested in learning programming and web development more effectively, even many design resources are provided in "developer/-/".</h4>
     </div>
 
-    <h1>Links</h1>
+    <h1>LINKS</h1>
     <div class="line border-top-1 my-2"></div>
     <div class="ccg ccg-3" style="--grid-gap-x: 30px;--grid-gap-y: 30px;">
 
@@ -86,7 +103,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="d-block">
         <div class="line border-top-1 my-2"></div>
         <div class="bottom flex text-uppercase flex-ai-end">
             <div class="w-100">© 2022</div>
@@ -94,6 +111,7 @@
             <div class="w-100 text-right">studio in taiwan.</div>
         </div>
     </footer>
+
 </body>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
 <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script>
@@ -106,10 +124,10 @@
     }
     setTimeout(() => {
         scroll.update();
-        document.querySelector("h1").addEventListener('mousemove', () => {
+        document.querySelector("a").addEventListener('mousemove', () => {
             scroll.update();
         })
-    }, 0)
+    }, 100)
 </script>
 
 </html>
