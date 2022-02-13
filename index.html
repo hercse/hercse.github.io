@@ -111,9 +111,11 @@
                     <div class="title fw-600 mb-2">
                         The Other Sites
                     </div>
-                    <div class=""><a class="text-color-base text-decoration-none" href="">Swiss Max</a><br><br></div>
-                    <div class=""><a class="text-color-base text-decoration-none" href="">Swiss Max</a><br><br></div>
-                    <div class=""><a class="text-color-base text-decoration-none" href="">Swiss Max</a><br><br></div>
+                    <div class="footer-links">
+                        <div class=""><a class="text-color-base text-decoration-none" href="">Swiss Max</a><br><br></div>
+                        <div class=""><a class="text-color-base text-decoration-none" href="">Swiss Max</a><br><br></div>
+                        <div class=""><a class="text-color-base text-decoration-none" href="">Swiss Max</a><br><br></div>
+                    </div>
                 </div>
                 <div class="m:mb-0 mb-4">
                     <div class="title fw-600 mb-2">
@@ -190,13 +192,19 @@
         });
 
         googlesheet("https://sheets.googleapis.com/v4/spreadsheets/1ht4ekGq2xZJHcmFbYmL2IqC1phBB6yqu82d8I9a9wYU/values/Links!A1:B999?alt=json&key=AIzaSyBdDg9HUG3s3377BO72GvlEBFJYYQwjBvc", "", (output) => {
-            var writeInnerHTML = "";
+            var writeInnerHTML_header = "";
+            var writeInnerHTML_footer = "";
             output.forEach(e => {
-                writeInnerHTML = writeInnerHTML + `
+                writeInnerHTML_header = writeInnerHTML_header + `
                 <a href="${e[1]}" class="text-color-base text-decoration-none">${e[0]}</a>
+                `;
+                writeInnerHTML_footer = writeInnerHTML_footer + `
+                <div class=""><a class="text-color-base text-decoration-none" href="${e[1]}">>${e[0]}</a><br><br></div>
                 `
             });
-            document.querySelector(".header-links").innerHTML = writeInnerHTML;
+            document.querySelector(".header-links").innerHTML = writeInnerHTML_header;
+            document.querySelector(".footer-links").innerHTML = writeInnerHTML_header;
+
             console.log(writeInnerHTML);
         });
 
