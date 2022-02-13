@@ -199,11 +199,11 @@
                 <a href="${e[1]}" class="text-color-base text-decoration-none">${e[0]}</a>
                 `;
                 writeInnerHTML_footer = writeInnerHTML_footer + `
-                <div class=""><a class="text-color-base text-decoration-none" href="${e[1]}">>${e[0]}</a><br><br></div>
+                <div class=""><a class="text-color-base text-decoration-none" href="${e[1]}">${e[0]}</a><br><br></div>
                 `
             });
             document.querySelector(".header-links").innerHTML = writeInnerHTML_header;
-            document.querySelector(".footer-links").innerHTML = writeInnerHTML_header;
+            document.querySelector(".footer-links").innerHTML = writeInnerHTML_footer;
 
             console.log(writeInnerHTML);
         });
